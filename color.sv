@@ -133,9 +133,6 @@ module input_memory (
     genvar i, j;
     for (i = -1; i <= 1; i++) begin
       for (j = -1; j <= 1; j++) begin
-        //logic in_bounds;
-        //assign in_bounds = (address_x <= 39) && (address_y <= 29);
-        //assign data_out[j][i] = in_bounds ? mem[address_y+j[4:0]][address_x+i[4:0]] : 0;
         assign data_out[j][i] = mem[address_y+5'(j)][address_x+6'(i)];
 
       end
@@ -150,7 +147,7 @@ module color (
 );
 
 
-  logic [7:0] channels[29:0][39:0][3:0];
+  logic [7:0] channels[29:0][39:0][3:0]  /* synthesis syn_ramstyle="block_ram" */;
 
 
   logic [10:0] pixel_number;
