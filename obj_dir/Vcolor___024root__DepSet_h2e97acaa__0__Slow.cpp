@@ -70,7 +70,7 @@ VL_ATTR_COLD void Vcolor___024root___eval_settle(Vcolor___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vcolor___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("color.sv", 147, "", "Settle region did not converge.");
+                VL_FATAL_MT("color.sv", 144, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -289,15 +289,15 @@ VL_ATTR_COLD void Vcolor___024root___stl_sequent__TOP__0(Vcolor___024root* vlSel
         vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
             [0U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][0U] 
+        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [0U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][1U] 
+            [2U][0U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][1U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [0U][1U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][2U] 
+            [2U][1U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][2U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [0U][2U];
+            [2U][2U];
     } else if ((1U == vlSelf->color__DOT__vertical)) {
         vlSelf->color__DOT__filter3x3__DOT__pixels[2U][2U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
@@ -354,15 +354,15 @@ VL_ATTR_COLD void Vcolor___024root___stl_sequent__TOP__0(Vcolor___024root* vlSel
         vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
             [0U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
+        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [2U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][1U] 
+            [0U][0U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][1U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [2U][1U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][2U] 
+            [0U][1U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][2U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [2U][2U];
+            [0U][2U];
     }
     if ((0U == vlSelf->color__DOT__col)) {
         vlSelf->color__DOT__green = (0xffU & ((((vlSelf->color__DOT__filter3x3__DOT__pixels

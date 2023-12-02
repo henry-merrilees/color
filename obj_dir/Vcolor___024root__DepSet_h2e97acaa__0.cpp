@@ -101,7 +101,7 @@ VL_INLINE_OPT void Vcolor___024root___nba_sequent__TOP__0(Vcolor___024root* vlSe
     if (vlSelf->reset) {
         __Vdly__color__DOT__pixel_number = 0U;
     } else if (VL_UNLIKELY((0x4b0U == (IData)(vlSelf->color__DOT__pixel_number)))) {
-        VL_FINISH_MT("color.sv", 161, "");
+        VL_FINISH_MT("color.sv", 158, "");
         __Vtemp_1[0U] = 0x2e6d656dU;
         __Vtemp_1[1U] = 0x74707574U;
         __Vtemp_1[2U] = 0x652f6f75U;
@@ -321,15 +321,15 @@ VL_INLINE_OPT void Vcolor___024root___nba_sequent__TOP__0(Vcolor___024root* vlSe
         vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
             [0U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][0U] 
+        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [0U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][1U] 
+            [2U][0U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][1U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [0U][1U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][2U] 
+            [2U][1U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][2U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [0U][2U];
+            [2U][2U];
     } else if ((1U == vlSelf->color__DOT__vertical)) {
         vlSelf->color__DOT__filter3x3__DOT__pixels[2U][2U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
@@ -386,15 +386,15 @@ VL_INLINE_OPT void Vcolor___024root___nba_sequent__TOP__0(Vcolor___024root* vlSe
         vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
             [0U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][0U] 
+        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][0U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [2U][0U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][1U] 
+            [0U][0U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][1U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [2U][1U];
-        vlSelf->color__DOT__filter3x3__DOT__pixels[0U][2U] 
+            [0U][1U];
+        vlSelf->color__DOT__filter3x3__DOT__pixels[2U][2U] 
             = vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended
-            [2U][2U];
+            [0U][2U];
     }
     if ((0U == vlSelf->color__DOT__col)) {
         vlSelf->color__DOT__green = (0xffU & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
@@ -526,7 +526,7 @@ void Vcolor___024root___eval(Vcolor___024root* vlSelf) {
 #ifdef VL_DEBUG
                     Vcolor___024root___dump_triggers__act(vlSelf);
 #endif
-                    VL_FATAL_MT("color.sv", 147, "", "Active region did not converge.");
+                    VL_FATAL_MT("color.sv", 144, "", "Active region did not converge.");
                 }
                 vlSelf->__VactIterCount = ((IData)(1U) 
                                            + vlSelf->__VactIterCount);
@@ -541,7 +541,7 @@ void Vcolor___024root___eval(Vcolor___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vcolor___024root___dump_triggers__nba(vlSelf);
 #endif
-                VL_FATAL_MT("color.sv", 147, "", "NBA region did not converge.");
+                VL_FATAL_MT("color.sv", 144, "", "NBA region did not converge.");
             }
             __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
             Vcolor___024root___eval_nba(vlSelf);

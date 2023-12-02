@@ -98,18 +98,18 @@ module edge_handler (
     case (vertical)
       Top: begin
         pixels_out = horizontally_extended;
-        pixels_out[1][-1] = horizontally_extended[-1][-1];
-        pixels_out[1][0] = horizontally_extended[-1][0];
-        pixels_out[1][1] = horizontally_extended[-1][1];
+        pixels_out[-1][-1] = horizontally_extended[1][-1];
+        pixels_out[-1][0] = horizontally_extended[1][0];
+        pixels_out[-1][1] = horizontally_extended[1][1];
       end
       Center: begin
         pixels_out = horizontally_extended;
       end
       Bottom: begin
         pixels_out = horizontally_extended;
-        pixels_out[-1][-1] = horizontally_extended[1][-1];
-        pixels_out[-1][0] = horizontally_extended[1][0];
-        pixels_out[-1][1] = horizontally_extended[1][1];
+        pixels_out[1][-1] = horizontally_extended[-1][-1];
+        pixels_out[1][0] = horizontally_extended[-1][0];
+        pixels_out[1][1] = horizontally_extended[-1][1];
       end
     endcase
 
