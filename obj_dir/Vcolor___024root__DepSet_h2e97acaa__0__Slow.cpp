@@ -21,6 +21,8 @@ VL_ATTR_COLD void Vcolor___024root___eval_initial(Vcolor___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcolor___024root___eval_initial\n"); );
     // Body
     Vcolor___024root___eval_initial__TOP(vlSelf);
+    vlSelf->__Vm_traceActivity[1U] = 1U;
+    vlSelf->__Vm_traceActivity[0U] = 1U;
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = vlSelf->clk;
 }
 
@@ -31,6 +33,7 @@ VL_ATTR_COLD void Vcolor___024root___eval_initial__TOP(Vcolor___024root* vlSelf)
     // Init
     VlWide<4>/*127:0*/ __Vtemp_1;
     // Body
+    vlSelf->color__DOT__pixel_out = (0xffU | vlSelf->color__DOT__pixel_out);
     __Vtemp_1[0U] = 0x2e6d656dU;
     __Vtemp_1[1U] = 0x6d616765U;
     __Vtemp_1[2U] = 0x74652f69U;
@@ -70,7 +73,7 @@ VL_ATTR_COLD void Vcolor___024root___eval_settle(Vcolor___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vcolor___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("color.sv", 144, "", "Settle region did not converge.");
+                VL_FATAL_MT("color.sv", 152, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -99,98 +102,101 @@ VL_ATTR_COLD void Vcolor___024root___stl_sequent__TOP__0(Vcolor___024root* vlSel
     Vcolor__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcolor___024root___stl_sequent__TOP__0\n"); );
     // Body
-    vlSelf->color__DOT__col = ((1U & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))
-                                ? ((1U & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))
+    vlSelf->color__DOT__col = ((1U & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U)))
+                                ? ((1U & VL_DIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U)))
                                     ? 1U : 2U) : ((1U 
-                                                   & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))
+                                                   & VL_DIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U)))
                                                    ? 3U
                                                    : 0U));
     vlSelf->color__DOT__vertical = ((0U == (0x1fU & 
-                                            VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
+                                            VL_DIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U))))
                                      ? 0U : ((0x1dU 
                                               == (0x1fU 
-                                                  & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
+                                                  & VL_DIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U))))
                                               ? 2U : 1U));
     vlSelf->color__DOT__lateral = ((0U == (0x3fU & 
-                                           VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
+                                           VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U))))
                                     ? 0U : ((0x27U 
                                              == (0x3fU 
-                                                 & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
+                                                 & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__address), (IData)(0x28U))))
                                              ? 2U : 1U));
-    if ((0x27U >= (0x3fU & ((IData)(0x3fU) + (0x7ffU 
-                                              & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))) {
-        vlSelf->color__DOT__data_out[0U][0U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & ((IData)(0x1fU) + 
-                                  (0x7ffU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))
-               ? (0x1fU & ((IData)(0x1fU) + (0x7ffU 
-                                             & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))
-               : 0U)][(0x3fU & ((IData)(0x3fU) + (0x7ffU 
-                                                  & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))];
-        vlSelf->color__DOT__data_out[1U][0U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
-               ? (0x1fU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))
-               : 0U)][(0x3fU & ((IData)(0x3fU) + (0x7ffU 
-                                                  & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))];
-        vlSelf->color__DOT__data_out[2U][0U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & ((IData)(1U) + (0x7ffU 
-                                                 & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))
-               ? (0x1fU & ((IData)(1U) + (0x7ffU & 
-                                          VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))
-               : 0U)][(0x3fU & ((IData)(0x3fU) + (0x7ffU 
-                                                  & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))];
-    } else {
-        vlSelf->color__DOT__data_out[0U][0U] = 0U;
-        vlSelf->color__DOT__data_out[1U][0U] = 0U;
-        vlSelf->color__DOT__data_out[2U][0U] = 0U;
-    }
-    if ((0x27U >= (0x3fU & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))) {
-        vlSelf->color__DOT__data_out[0U][1U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & ((IData)(0x1fU) + 
-                                  (0x7ffU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))
-               ? (0x1fU & ((IData)(0x1fU) + (0x7ffU 
-                                             & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))
-               : 0U)][(0x3fU & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))];
-        vlSelf->color__DOT__data_out[1U][1U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
-               ? (0x1fU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))
-               : 0U)][(0x3fU & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))];
-        vlSelf->color__DOT__data_out[2U][1U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & ((IData)(1U) + (0x7ffU 
-                                                 & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))
-               ? (0x1fU & ((IData)(1U) + (0x7ffU & 
-                                          VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))
-               : 0U)][(0x3fU & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))];
-    } else {
-        vlSelf->color__DOT__data_out[0U][1U] = 0U;
-        vlSelf->color__DOT__data_out[1U][1U] = 0U;
-        vlSelf->color__DOT__data_out[2U][1U] = 0U;
-    }
-    if ((0x27U >= (0x3fU & ((IData)(1U) + (0x7ffU & 
-                                           VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))) {
-        vlSelf->color__DOT__data_out[0U][2U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & ((IData)(0x1fU) + 
-                                  (0x7ffU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))
-               ? (0x1fU & ((IData)(0x1fU) + (0x7ffU 
-                                             & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))
-               : 0U)][(0x3fU & ((IData)(1U) + (0x7ffU 
-                                               & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))];
-        vlSelf->color__DOT__data_out[1U][2U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))
-               ? (0x1fU & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))
-               : 0U)][(0x3fU & ((IData)(1U) + (0x7ffU 
-                                               & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))];
-        vlSelf->color__DOT__data_out[2U][2U] = vlSelf->color__DOT__input_memory__DOT__mem
-            [((0x1dU >= (0x1fU & ((IData)(1U) + (0x7ffU 
-                                                 & VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U))))))
-               ? (0x1fU & ((IData)(1U) + (0x7ffU & 
-                                          VL_DIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))
-               : 0U)][(0x3fU & ((IData)(1U) + (0x7ffU 
-                                               & VL_MODDIV_III(11, (IData)(vlSelf->color__DOT__pixel_number), (IData)(0x28U)))))];
-    } else {
-        vlSelf->color__DOT__data_out[0U][2U] = 0U;
-        vlSelf->color__DOT__data_out[1U][2U] = 0U;
-        vlSelf->color__DOT__data_out[2U][2U] = 0U;
-    }
+    vlSelf->color__DOT__data_out[0U][0U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x7d7U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x7d7U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[1U][0U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x7ffU) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x7ffU) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[2U][0U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x27U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x27U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[0U][1U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x7d8U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x7d8U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[1U][1U] = ((0x4afU 
+                                             >= (IData)(vlSelf->color__DOT__address))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [vlSelf->color__DOT__address]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[2U][1U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x28U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x28U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[0U][2U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x7d9U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x7d9U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[1U][2U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(1U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(1U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
+    vlSelf->color__DOT__data_out[2U][2U] = ((0x4afU 
+                                             >= (0x7ffU 
+                                                 & ((IData)(0x29U) 
+                                                    + (IData)(vlSelf->color__DOT__address))))
+                                             ? vlSelf->color__DOT__input_memory__DOT__mem
+                                            [(0x7ffU 
+                                              & ((IData)(0x29U) 
+                                                 + (IData)(vlSelf->color__DOT__address)))]
+                                             : 0U);
     if ((0U == vlSelf->color__DOT__lateral)) {
         vlSelf->color__DOT__filter3x3__DOT__edge_handler__DOT__horizontally_extended[2U][2U] 
             = vlSelf->color__DOT__data_out[2U][2U];
@@ -365,88 +371,141 @@ VL_ATTR_COLD void Vcolor___024root___stl_sequent__TOP__0(Vcolor___024root* vlSel
             [0U][2U];
     }
     if ((0U == vlSelf->color__DOT__col)) {
-        vlSelf->color__DOT__green = (0xffU & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                                 [1U]
-                                                 [2U] 
+        vlSelf->color__DOT__pixel_out = ((0xffffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (vlSelf->color__DOT__filter3x3__DOT__pixels
+                                            [1U][1U] 
+                                            << 0x18U));
+        vlSelf->color__DOT__pixel_out = ((0xff00ffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff0000U 
+                                            & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [1U]
+                                                  [2U] 
+                                                  + 
+                                                  vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [2U]
+                                                  [1U]) 
                                                  + 
                                                  vlSelf->color__DOT__filter3x3__DOT__pixels
-                                                 [2U]
+                                                 [0U]
                                                  [1U]) 
                                                 + vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [1U]
+                                                [0U]) 
+                                               << 0xeU)));
+        vlSelf->color__DOT__pixel_out = ((0xffff00ffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff00U 
+                                            & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [2U]
+                                                  [2U] 
+                                                  + 
+                                                  vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [2U]
+                                                  [0U]) 
+                                                 + 
+                                                 vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                 [0U]
+                                                 [2U]) 
+                                                + vlSelf->color__DOT__filter3x3__DOT__pixels
                                                 [0U]
-                                                [1U]) 
-                                               + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                               [1U]
-                                               [0U]) 
-                                              >> 2U));
-        vlSelf->color__DOT__red = vlSelf->color__DOT__filter3x3__DOT__pixels
-            [1U][1U];
-        vlSelf->color__DOT__blue = (0xffU & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                                [2U]
+                                                [0U]) 
+                                               << 6U)));
+    } else if ((1U == vlSelf->color__DOT__col)) {
+        vlSelf->color__DOT__pixel_out = ((0xffffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff000000U 
+                                            & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [2U]
+                                                  [2U] 
+                                                  + 
+                                                  vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [2U]
+                                                  [0U]) 
+                                                 + 
+                                                 vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                 [0U]
+                                                 [2U]) 
+                                                + vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [0U]
+                                                [0U]) 
+                                               << 0x16U)));
+        vlSelf->color__DOT__pixel_out = ((0xff00ffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff0000U 
+                                            & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [1U]
+                                                  [2U] 
+                                                  + 
+                                                  vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                  [2U]
+                                                  [1U]) 
+                                                 + 
+                                                 vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                 [0U]
+                                                 [1U]) 
+                                                + vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [1U]
+                                                [0U]) 
+                                               << 0xeU)));
+        vlSelf->color__DOT__pixel_out = ((0xffff00ffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (vlSelf->color__DOT__filter3x3__DOT__pixels
+                                            [1U][1U] 
+                                            << 8U));
+    } else if ((2U == vlSelf->color__DOT__col)) {
+        vlSelf->color__DOT__pixel_out = ((0xffffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff000000U 
+                                            & ((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [1U]
                                                 [2U] 
                                                 + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                                [2U]
+                                                [1U]
                                                 [0U]) 
-                                               + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                               [0U]
-                                               [2U]) 
-                                              + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                              [0U][0U]) 
-                                             >> 2U));
-    } else if ((1U == vlSelf->color__DOT__col)) {
-        vlSelf->color__DOT__green = (0xffU & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                                 [1U]
-                                                 [2U] 
-                                                 + 
-                                                 vlSelf->color__DOT__filter3x3__DOT__pixels
-                                                 [2U]
-                                                 [1U]) 
+                                               << 0x17U)));
+        vlSelf->color__DOT__pixel_out = ((0xff00ffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (vlSelf->color__DOT__filter3x3__DOT__pixels
+                                            [1U][1U] 
+                                            << 0x10U));
+        vlSelf->color__DOT__pixel_out = ((0xffff00ffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff00U 
+                                            & ((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [2U]
+                                                [1U] 
                                                 + vlSelf->color__DOT__filter3x3__DOT__pixels
                                                 [0U]
                                                 [1U]) 
-                                               + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                               [1U]
-                                               [0U]) 
-                                              >> 2U));
-        vlSelf->color__DOT__red = (0xffU & ((((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                               [2U]
-                                               [2U] 
-                                               + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                               [2U]
-                                               [0U]) 
-                                              + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                              [0U][2U]) 
-                                             + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                             [0U][0U]) 
-                                            >> 2U));
-        vlSelf->color__DOT__blue = vlSelf->color__DOT__filter3x3__DOT__pixels
-            [1U][1U];
-    } else if ((2U == vlSelf->color__DOT__col)) {
-        vlSelf->color__DOT__green = vlSelf->color__DOT__filter3x3__DOT__pixels
-            [1U][1U];
-        vlSelf->color__DOT__red = (0xffU & ((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                             [1U][2U] 
-                                             + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                             [1U][0U]) 
-                                            >> 1U));
-        vlSelf->color__DOT__blue = (0xffU & ((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                              [2U][1U] 
-                                              + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                              [0U][1U]) 
-                                             >> 1U));
+                                               << 7U)));
     } else if ((3U == vlSelf->color__DOT__col)) {
-        vlSelf->color__DOT__green = vlSelf->color__DOT__filter3x3__DOT__pixels
-            [1U][1U];
-        vlSelf->color__DOT__red = (0xffU & ((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                             [2U][1U] 
-                                             + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                             [0U][1U]) 
-                                            >> 1U));
-        vlSelf->color__DOT__blue = (0xffU & ((vlSelf->color__DOT__filter3x3__DOT__pixels
-                                              [1U][2U] 
-                                              + vlSelf->color__DOT__filter3x3__DOT__pixels
-                                              [1U][0U]) 
-                                             >> 1U));
+        vlSelf->color__DOT__pixel_out = ((0xffffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff000000U 
+                                            & ((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [2U]
+                                                [1U] 
+                                                + vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [0U]
+                                                [1U]) 
+                                               << 0x17U)));
+        vlSelf->color__DOT__pixel_out = ((0xff00ffffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (vlSelf->color__DOT__filter3x3__DOT__pixels
+                                            [1U][1U] 
+                                            << 0x10U));
+        vlSelf->color__DOT__pixel_out = ((0xffff00ffU 
+                                          & vlSelf->color__DOT__pixel_out) 
+                                         | (0xff00U 
+                                            & ((vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [1U]
+                                                [2U] 
+                                                + vlSelf->color__DOT__filter3x3__DOT__pixels
+                                                [1U]
+                                                [0U]) 
+                                               << 7U)));
     }
 }
 
@@ -499,14 +558,10 @@ VL_ATTR_COLD void Vcolor___024root___ctor_var_reset(Vcolor___024root* vlSelf) {
     // Body
     vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->reset = VL_RAND_RESET_I(1);
-    for (int __Vi0 = 0; __Vi0 < 30; ++__Vi0) {
-        for (int __Vi1 = 0; __Vi1 < 40; ++__Vi1) {
-            for (int __Vi2 = 0; __Vi2 < 4; ++__Vi2) {
-                vlSelf->color__DOT__channels[__Vi0][__Vi1][__Vi2] = VL_RAND_RESET_I(8);
-            }
-        }
+    for (int __Vi0 = 0; __Vi0 < 1200; ++__Vi0) {
+        vlSelf->color__DOT__channels[__Vi0] = VL_RAND_RESET_I(32);
     }
-    vlSelf->color__DOT__pixel_number = VL_RAND_RESET_I(11);
+    vlSelf->color__DOT__address = VL_RAND_RESET_I(11);
     for (int __Vi0 = 0; __Vi0 < 3; ++__Vi0) {
         for (int __Vi1 = 0; __Vi1 < 3; ++__Vi1) {
             vlSelf->color__DOT__data_out[__Vi0][__Vi1] = VL_RAND_RESET_I(8);
@@ -515,13 +570,9 @@ VL_ATTR_COLD void Vcolor___024root___ctor_var_reset(Vcolor___024root* vlSelf) {
     vlSelf->color__DOT__lateral = 0;
     vlSelf->color__DOT__vertical = 0;
     vlSelf->color__DOT__col = 0;
-    vlSelf->color__DOT__red = VL_RAND_RESET_I(8);
-    vlSelf->color__DOT__green = VL_RAND_RESET_I(8);
-    vlSelf->color__DOT__blue = VL_RAND_RESET_I(8);
-    for (int __Vi0 = 0; __Vi0 < 30; ++__Vi0) {
-        for (int __Vi1 = 0; __Vi1 < 40; ++__Vi1) {
-            vlSelf->color__DOT__input_memory__DOT__mem[__Vi0][__Vi1] = VL_RAND_RESET_I(8);
-        }
+    vlSelf->color__DOT__pixel_out = VL_RAND_RESET_I(32);
+    for (int __Vi0 = 0; __Vi0 < 1200; ++__Vi0) {
+        vlSelf->color__DOT__input_memory__DOT__mem[__Vi0] = VL_RAND_RESET_I(8);
     }
     for (int __Vi0 = 0; __Vi0 < 3; ++__Vi0) {
         for (int __Vi1 = 0; __Vi1 < 3; ++__Vi1) {

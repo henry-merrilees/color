@@ -85,12 +85,15 @@ def load_image(input_path="state/mp.png", output_path="state/image.mem"):
 
 
 def view_image_color(input_path="state/output.mem"):
+    data = bytearray()
     with open(input_path, "r") as file:
-        values = [int(x, 16) for x in file.read().split()]
+        for x in file.read().split():
+            four_bytes = bytes.fromhex(x)
+            data += four_bytes
 
-    image_array = np.array(values, dtype=np.uint8).reshape((HEIGHT, WIDTH, 4))
-    image = Image.fromarray(image_array)
+    image = Image.frombytes("RGBA", (WIDTH, HEIGHT), bytes(data))
     image.show()
+
 
 def view_image_bw(input_path="state/image.mem"):
     pixels = []
@@ -128,5 +131,3 @@ if __name__ == "__main__":
                 view_image_bw(sys.argv[2])
             else:
                 view_image_bw()
-
-
